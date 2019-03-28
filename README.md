@@ -1,3 +1,10 @@
+demo: https://github.com/smchala/exercise/blob/master/flick.webm
+
+
+ Written in Kotlin, using LiveData, RxAndroid, databinding. Architecture MVVM
+ Sample of unit tests
+ 
+
 Cinema Tickets Exercise
 Please think carefully about each aspect of the problem and define a solution that fits the requirements listed.
 
