@@ -2,6 +2,7 @@ demo: https://github.com/smchala/exercise/blob/master/flick.webm
 
 
  Written in Kotlin, using LiveData, RxAndroid, databinding. Architecture MVVM
+ 
  Sample of unit tests
  
 
