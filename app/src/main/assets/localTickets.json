@@ -1,0 +1,65 @@
+{
+  "cinemaId": "123456",
+  "cinemaName": "Flick Cinema",
+  "timeStamp": "1521815700",
+  "currency": "GBP",
+  "version": 1,
+  "ticketsType": [
+    {
+      "name": "Stansdard",
+      "price": 790
+    },
+    {
+      "name": "Concession",
+      "price": 540
+    }
+  ],
+  "ticketsExtra": [
+    {
+      "name": "Real3D",
+      "price": 90
+    },
+    {
+      "name": "IMAX",
+      "price": 150
+    }
+  ],
+  "offers": [
+    {
+      "offerType": "LINE_ITEM_DISCOUNT",
+      "discountType": "QUANTITY",
+      "name": "OFFER: Three for One Thursdays",
+      "discountDays": 3,
+      "discount": 3,
+      "description": "buy one get two free for tickets purchased on Thursdays"
+    }
+  ],
+  "movies": [
+    {
+      "name": "movie 1",
+      "days": [
+        {
+          "day": "Monday",
+          "id": 0,
+          "time": "18:00"
+        },
+        {
+          "day": "Tuesday",
+          "id": 1,
+          "time": "18:00"
+        },
+        {
+          "day": "Thursday",
+          "id": 3,
+          "time": "18:00"
+        },
+        {
+          "day": "Saturday",
+          "id": 5,
+          "time": "18:00"
+        }
+      ],
+      "pg": "all"
+    }
+  ]
+}

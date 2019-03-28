@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/CatalogueFragment">
+
+    <fragment
+            android:id="@+id/CatalogueFragment"
+            android:name="com.otssso.samimchala.flick.views.CatalogueFragment"
+            android:label="LoginFragment">
+
+        <action android:id="@+id/action_CatalogueFragment_to_saleFragment" app:destination="@id/saleFragment"/>
+    </fragment>
+    <fragment android:id="@+id/saleFragment" android:name="com.otssso.samimchala.flick.views.SaleFragment"
+              android:label="SaleFragment"/>
+</navigation>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Flick</string>
+    <string name="payment_success">Payment made successfully!</string>
+    <string name="pg">&#160;Sorry this movie is: PG15, no concessions allowed!</string>
+    <string name="validation_error_3333">ERROR, please make sure you have selected the day, quantity</string>
+    <string name="validation_error_unknown">Unknown error!</string>
+    <string name="select_movie">Please select a movie</string>
+    <string name="pay_button">PAY</string>
+    <string name="total_prompt">Total:</string>
+    <string name="add_basket_button">ADD TO BASKET</string>
+    <string name="minus_button">-</string>
+    <string name="add_button">+</string>
+    <string name="quantity_prompt">Quantity:</string>
+    <string name="tickets_extra_prompt">Tickets extras</string>
+    <string name="tickets_type_prompt">Ticket types:</string>
+    <string name="days_prompt">Days:</string>
+</resources>

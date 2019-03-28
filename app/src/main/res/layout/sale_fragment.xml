@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:id="@+id/layout">
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+                name="viewModel"
+                type="com.otssso.samimchala.flick.viewModels.SaleViewModel"/>
+    </data>
+
+    <!--note:
+                any dimension or color etc... should go to their appropriate file dimen and color...
+    -->
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:paddingBottom="100dp">
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:text="@{viewModel.cinema}"
+                      android:id="@+id/cinemaName"
+                      android:layout_marginTop="24dp"
+                      app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintEnd_toEndOf="parent"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:text="@{viewModel.movie}"
+                      android:id="@+id/movie"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintHorizontal_bias="0.0"
+                      android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/cinemaName"
+                      android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/pg"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:text="@{viewModel.pg}"
+                      android:id="@+id/pg"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="28dp"
+                      app:layout_constraintTop_toBottomOf="@+id/movie"/>
+
+            <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:id="@+id/radio_group_days"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
+                        android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/pg">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/days_prompt"/>
+            </RadioGroup>
+
+            <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:id="@+id/radiogroup_tickets_type"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
+                        android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/radio_group_days">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tickets_type_prompt"/>
+            </RadioGroup>
+
+            <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:id="@+id/radiogroup_tickets_extras"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
+                        android:layout_marginTop="32dp"
+                        app:layout_constraintTop_toBottomOf="@+id/radiogroup_tickets_type">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tickets_extra_prompt"/>
+            </RadioGroup>
+
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:text="@string/quantity_prompt"
+                      android:id="@+id/textView3"
+                      app:layout_constraintStart_toEndOf="@+id/decrease" android:layout_marginStart="8dp"
+                      tools:layout_editor_absoluteY="364dp" app:layout_constraintEnd_toStartOf="@+id/increase"
+                      android:layout_marginEnd="8dp"/>
+            <EditText android:layout_width="50dp" android:layout_height="wrap_content"
+                      app:quantity="@={viewModel.quantity}"
+                      android:id="@+id/textView2"
+                      app:layout_constraintStart_toEndOf="@+id/decrease"
+                      android:layout_marginStart="8dp"
+                      app:layout_constraintTop_toBottomOf="@+id/radiogroup_tickets_extras"
+                      android:layout_marginTop="32dp"
+                      android:gravity="center" app:layout_constraintEnd_toStartOf="@+id/increase"
+                      android:layout_marginEnd="8dp"/>
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/add_button"
+                    android:id="@+id/increase"
+                    android:onClick="@{viewModel::increaseQuantity}"
+                    android:enabled="@{viewModel.canIncreaseQuantity}"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintTop_toBottomOf="@+id/radiogroup_tickets_extras"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="32dp"/>
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/minus_button"
+                    android:id="@+id/decrease"
+                    android:onClick="@{viewModel::decreaseQuantity}"
+                    android:enabled="@{viewModel.canDecreaseQuantity}"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintTop_toBottomOf="@+id/radiogroup_tickets_extras"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"/>
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/add_basket_button"
+                    android:id="@+id/button"
+                    android:onClick="@{viewModel::addToBasket}"
+                    android:layout_marginTop="44dp"
+                    app:layout_constraintTop_toBottomOf="@+id/increase" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.498"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:layout_marginTop="32dp"
+                      app:layout_constraintTop_toBottomOf="@+id/button" app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="24dp"
+                      android:layout_marginEnd="24dp" android:text="@string/total_prompt" android:id="@+id/textView5"/>
+            <TextView
+                    android:text="@{viewModel.totalAmount}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/total_amount" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp"/>
+            <TextView
+                    android:text="@{viewModel.totalSaved}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/total_saved"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/total_amount"/>
+            <TextView
+                    app:quantityTextView="@{viewModel.ticketsCount}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/total_saved2"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/total_saved"/>
+            <Button
+                    android:text="@string/pay_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/payment_button" android:layout_marginTop="32dp"
+                    app:layout_constraintTop_toBottomOf="@+id/total_saved2"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="141dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="142dp"
+                    android:onClick="@{viewModel::makePayment}"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
